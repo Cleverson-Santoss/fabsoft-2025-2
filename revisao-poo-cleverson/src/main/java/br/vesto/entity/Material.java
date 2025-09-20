@@ -4,6 +4,7 @@ public class Material {
     private String nome;
     private int codigo;
     private  String descricao;
+    private Categoria categoria;
 
     public String getNome() {
         return nome;
@@ -27,6 +28,14 @@ public class Material {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
 
