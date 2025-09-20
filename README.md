@@ -39,3 +39,46 @@ Validação de Dados do Cadastro
     Como um usuário do sistema, eu gostaria de que o sistema não permita cadastro de código de material repetido.
 
     Como um usuário do sistema, eu gostaria de que o sistema informe caso ocorra um erro de preenchimento.
+
+
+---
+Diagrama de Entidades
+---
+```mermaid
+classDiagram
+    Material "*" --> "1" Categoria
+    namespace entity {
+      class Categoria {
+          -id : long
+          -nome : String
+          -descricao : String
+
+          +getId() long
+          +setId(id:long) void
+          +getNome() String
+          +setNome(nome:String) void
+          +getDescricao() String
+          +setDescricao(descricao:String) void
+      }
+
+      class Material {
+          -id : long
+          -codigo : String
+          -nome : String
+          -descricao : String
+          -categoria : Categoria
+
+          +getId() long
+          +setId(id:long) void
+          +getCodigo() String
+          +setCodigo(codigo:String) void
+          +getNome() String
+          +setNome(nome:String) void
+          +getDescricao() String
+          +setDescricao(descricao:String) voidd
+          +getCategoria() Categoria
+          +setCategoria(categoria:Categoria) void
+      }
+    }
+
+
