@@ -45,6 +45,7 @@ Validação de Dados do Cadastro
 Diagrama de Entidades
 ---
 ```mermaid
+
 classDiagram
     Material "*" --> "1" Categoria
     namespace entity {
