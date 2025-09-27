@@ -1,8 +1,22 @@
 package br.vesto.entity;
 
+import java.util.ArrayList;
+
 public class Categoria {
     String nome;
     String descricao;
+    private ArrayList<Material> listaMaterial = 
+            new ArrayList<Material>();
+
+
+    public ArrayList<Material> getListaMaterial() {
+        return listaMaterial;
+    }
+
+
+    public void setListaMaterial(ArrayList<Material> listaMaterial) {
+        this.listaMaterial = listaMaterial;
+    }
 
 
     public Categoria(String nome, String descricao) {
