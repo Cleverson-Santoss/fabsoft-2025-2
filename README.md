@@ -47,8 +47,31 @@ Diagrama de Entidades
 ```mermaid
 
 classDiagram
-    Material "*" --> "1" Categoria
+   
+    Empresa "1" --> "*" Categoria
+    Empresa "1" --> "*" Material
+    Categoria "1" --> "*" Material
+
     namespace entity {
+     class Empresa {
+          -id : long
+          -nome : String
+          -cnpj : String
+          -endereco : String
+          -telefone : String
+
+          +getId() long
+          +setId(id:long) void
+          +getNome() String
+          +setNome(nome:String) void
+          +getCnpj() String
+          +setCnpj(cnpj:String) void
+          +getEndereco() String
+          +setEndereco(endereco:String) void
+          +getTelefone() String
+          +setTelefone(telefone:String) void 
+     }    
+
       class Categoria {
           -id : long
           -nome : String

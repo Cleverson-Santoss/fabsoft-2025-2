@@ -13,11 +13,15 @@ public class Material {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
-    private int codigo;
-    private  String descricao;
+    private int quantidade;
+    private String descricao;
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
 
     public long getId() {
         return id;
@@ -35,12 +39,12 @@ public class Material {
         this.nome = nome;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public String getDescricao() {
