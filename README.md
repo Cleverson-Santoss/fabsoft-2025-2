@@ -1,6 +1,6 @@
-# fabsoft-2025-2.
+# Fábrica de Software 2025.
 
-Cleverson Santos
+Nome: Cleverson Santos
 
 Sistema para controle de estoque de materiais
 
