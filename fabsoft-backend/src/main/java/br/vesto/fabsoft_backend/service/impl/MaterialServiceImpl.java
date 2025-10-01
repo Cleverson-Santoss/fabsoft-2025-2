@@ -16,8 +16,14 @@ public class MaterialServiceImpl
     @Autowired    
     private MaterialRepository repository;
 
+    @Override
     public List<Material> getAll(){
         return repository.findAll();
+    }
+
+    @Override
+    public Material save(Material material) {
+        return repository.save(material);
     }
 
 }
