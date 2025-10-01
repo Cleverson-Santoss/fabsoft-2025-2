@@ -1,4 +1,4 @@
-package br.vesto.repository;
+package br.vesto.fabsoft_backend.repository;
 
 import java.util.List;
 
