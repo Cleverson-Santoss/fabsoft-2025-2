@@ -21,4 +21,9 @@ public class EmpresaServiceImpl
        return repository.findAll(); 
     }
 
+    @Override
+    public Empresa save(Empresa empresa) {
+       return repository.save(empresa);
+    }
+
 }

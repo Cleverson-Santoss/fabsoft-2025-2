@@ -1,4 +1,39 @@
 ### GET Empresas
-
 GET http://localhost:8080/api/v1/empresas
 Content-Type: application/json
+
+
+### POST Empresas
+POST http://localhost:8080/api/v1/empresas
+Content-Type: application/json
+
+{
+  "id":0,
+  "nome": "Ciser",
+  "cnpj": "00.000.000/0000-00",
+  "telefone": "47-9969-2467"
+}
+
+
+### GET Materiais
+GET http://localhost:8080/api/v1/materiais
+Content-Type: application/json
+
+
+### GET Categorias
+GET http://localhost:8080/api/v1/categorias
+Content-Type: application/json
+
+
+### POST Categorias
+POST http://localhost:8080/api/v1/categorias
+Content-Type: application/json
+
+{
+  "id":0,
+  "nome": "Vasos",
+  "descricao": "Vasos de Planta P",
+  "empresa": {
+    "id": 1
+  }
+}

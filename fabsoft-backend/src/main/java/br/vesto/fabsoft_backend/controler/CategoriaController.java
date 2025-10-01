@@ -11,35 +11,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.vesto.fabsoft_backend.entity.Empresa;
-import br.vesto.fabsoft_backend.service.EmpresaService;
+import br.vesto.fabsoft_backend.entity.Categoria;
+import br.vesto.fabsoft_backend.service.CategoriaService;
+
 
 @RestController
-@RequestMapping("/api/v1/empresas")
-public class EmpresaController {
+@RequestMapping("/api/v1/categorias")
+public class CategoriaController {
 
     @Autowired
-    private EmpresaService service;
+    private CategoriaService service;
 
     @GetMapping
-    public ResponseEntity<List<Empresa>> getEmpresa(){
+    public ResponseEntity<List<Categoria>> getCategoria(){
+        var listaCategoria = service.getAll();
 
-        var listaEmpresa = service.getAll();
-
-        return new ResponseEntity<List<Empresa>>(listaEmpresa,
+        return new ResponseEntity<List<Categoria>>(listaCategoria,
         HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Empresa> save(@RequestBody Empresa empresa){
-        if(empresa == null){
+    public ResponseEntity<Categoria> save(@RequestBody Categoria categoria){
+        if(categoria == null){
             return ResponseEntity.badRequest().build();
         }
-        if(empresa.getId() == 0){
-            empresa = service.save(empresa);
-            return new ResponseEntity<Empresa>(empresa, HttpStatus.OK);
+        if(categoria.getId() == 0){
+            categoria = service.save(categoria);
+            return new ResponseEntity<Categoria>(categoria, HttpStatus.OK);
         }
         return ResponseEntity.badRequest().build();
-
     }
 }
