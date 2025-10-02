@@ -8,5 +8,6 @@ public interface EmpresaService {
     List<Empresa> getAll();
     Empresa save(Empresa empresa);
     Empresa update(long id, Empresa empresa) throws Exception;
+    Empresa delete(long id) throws Exception;
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,5 +61,20 @@ public class CategoriaController {
                 return ResponseEntity.notFound().build();
             }
 
-        }  
+        }
+        
+        @DeleteMapping("/{id}")
+    public ResponseEntity<Categoria> delete(@PathVariable long id) {
+    if (id <= 0) {
+        return ResponseEntity.badRequest().build();
+    }
+
+    try {
+        var categoria = service.delete(id); // chama o serviço de Categoria
+        return new ResponseEntity<Categoria>(categoria, HttpStatus.OK);
+    } catch (Exception e) {
+        return ResponseEntity.notFound().build();
+    }
+}
+
 }

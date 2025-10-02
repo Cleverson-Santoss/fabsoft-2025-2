@@ -33,6 +33,18 @@ public class Empresa {
     public long getId() {
         return id;
     }
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
+    }
+    public List<Material> getMateriais() {
+        return materiais;
+    }
+    public void setMateriais(List<Material> materiais) {
+        this.materiais = materiais;
+    }
     public void setId(long id) {
         this.id = id;
     }

@@ -43,4 +43,17 @@ public class CategoriaServiceImpl
 
     }
 
+    @Override
+    public Categoria delete(long id) throws Exception {
+
+    var categoriaAntiga = repository.getById(id);
+    if (categoriaAntiga == null) {
+        throw new Exception("Categoria inexistente");
+    }
+
+    repository.delete(categoriaAntiga);
+    return categoriaAntiga;
+}
+
+
 }

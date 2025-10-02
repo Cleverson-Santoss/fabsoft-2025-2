@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,18 +49,33 @@ public class MaterialController {
     update(@RequestBody Material material,
         @PathVariable long id){
         
-    if(id <= 0 || material == null){
+        if(id <= 0 || material == null){
         return ResponseEntity.badRequest().build();
     }
 
-    try {
-        material = service.update(id, material);
-        return new ResponseEntity<Material>(material,
-            HttpStatus.OK);
-    } catch (Exception e) {
-        return ResponseEntity.notFound().build();
+        try {
+            material = service.update(id, material);
+            return new ResponseEntity<Material>(material,
+                HttpStatus.OK);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
-}
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Material> delete(@PathVariable long id) {
+        if (id <= 0) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        try {
+            var material = service.delete(id); // chama o serviço de Material
+            return new ResponseEntity<Material>(material, HttpStatus.OK);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }

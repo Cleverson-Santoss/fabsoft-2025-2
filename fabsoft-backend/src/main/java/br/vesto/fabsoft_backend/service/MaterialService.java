@@ -8,4 +8,5 @@ public interface MaterialService {
     List<Material> getAll();
     Material save(Material material);
     Material update(long id, Material material) throws Exception;
+    Material delete(long id)throws Exception;
 }

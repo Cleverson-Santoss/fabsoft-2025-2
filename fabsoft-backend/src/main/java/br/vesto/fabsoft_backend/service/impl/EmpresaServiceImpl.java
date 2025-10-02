@@ -43,4 +43,16 @@ public class EmpresaServiceImpl
       return empresaAntigo;
     }
 
+    @Override
+    public Empresa delete(long id) throws Exception {
+
+      var empresaAntigo = repository.getById(id);
+      if (empresaAntigo == null) {
+         throw new Exception("Empresa inexistente");
+      }
+
+      repository.delete(empresaAntigo);
+      return empresaAntigo;
+    }
+
 }

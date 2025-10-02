@@ -3,6 +3,7 @@ package br.vesto.fabsoft_backend.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -26,6 +27,7 @@ public class Categoria {
     private String descricao;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Material> listaMaterial = new ArrayList<>();
 
     @ManyToOne

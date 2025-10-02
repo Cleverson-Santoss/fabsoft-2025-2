@@ -25,6 +25,10 @@ Content-Type: application/json
   "telefone": "47-9969-2467"
 }
 
+### DELETE Empresas
+DELETE http://localhost:8080/api/v1/empresas/1
+Content-Type: application/json
+
 
 ### GET Materiais
 GET http://localhost:8080/api/v1/materiais
@@ -66,6 +70,10 @@ Content-Type: application/json
   }
 }
 
+### DELETE Materiais
+DELETE http://localhost:8080/api/v1/materiais/1
+Content-Type: application/json
+
 ### GET Categorias
 GET http://localhost:8080/api/v1/categorias
 Content-Type: application/json
@@ -96,3 +104,7 @@ Content-Type: application/json
     "id": 1
   }
 }
+
+### DELETE Categorias
+DELETE http://localhost:8080/api/v1/categorias/1
+Content-Type: application/json
