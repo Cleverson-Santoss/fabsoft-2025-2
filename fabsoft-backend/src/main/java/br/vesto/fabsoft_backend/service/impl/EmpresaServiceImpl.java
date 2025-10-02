@@ -26,4 +26,21 @@ public class EmpresaServiceImpl
        return repository.save(empresa);
     }
 
+    @Override
+    public Empresa update(long id, Empresa empresa) throws Exception{
+      
+      var empresaAntigo = repository.getById(id);
+      if (empresaAntigo == null) {
+         throw new Exception("Empresa inexistente");
+      }
+
+      empresaAntigo.setNome(empresa.getNome());
+      empresaAntigo.setCnpj(empresa.getCnpj());
+      empresaAntigo.setTelefone(empresa.getTelefone());
+
+      repository.save(empresaAntigo);
+
+      return empresaAntigo;
+    }
+
 }

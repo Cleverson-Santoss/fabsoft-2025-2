@@ -14,17 +14,30 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Categoria {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    String nome;
-    String descricao;
+
+    private String nome;
+    private String descricao;
+
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Material> listaMaterial = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
+
+    // 🔹 Construtor padrão (obrigatório para JPA)
+    public Categoria() {
+    }
+
+    // 🔹 Construtor auxiliar
+    public Categoria(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 
     public long getId() {
         return id;
@@ -34,36 +47,25 @@ public class Categoria {
         this.id = id;
     }
 
-    public ArrayList<Material> getListaMaterial() {
-        return (ArrayList<Material>) listaMaterial;
+    public List<Material> getListaMaterial() {
+        return listaMaterial;
     }
 
-
-    public void setListaMaterial(ArrayList<Material> listaMaterial) {
+    public void setListaMaterial(List<Material> listaMaterial) {
         this.listaMaterial = listaMaterial;
     }
-
-
-    public Categoria(String nome, String descricao) {
-        this.nome = nome;
-        this.descricao = descricao;
-    }
-
 
     public String getNome() {
         return nome;
     }
 
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-
     public String getDescricao() {
         return descricao;
     }
-
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;

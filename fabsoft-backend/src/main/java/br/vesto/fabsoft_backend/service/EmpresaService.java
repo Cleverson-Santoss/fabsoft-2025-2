@@ -7,5 +7,6 @@ import br.vesto.fabsoft_backend.entity.Empresa;
 public interface EmpresaService {
     List<Empresa> getAll();
     Empresa save(Empresa empresa);
+    Empresa update(long id, Empresa empresa) throws Exception;
 
 }
