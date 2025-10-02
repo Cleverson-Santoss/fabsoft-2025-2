@@ -19,7 +19,7 @@ PUT  http://localhost:8080/api/v1/empresas/1
 Content-Type: application/json
 
 {
-  "id":0,
+  "id":1,
   "nome": "Ciser",
   "cnpj": "10.000.000/0000-00",
   "telefone": "47-9969-2467"
@@ -40,6 +40,24 @@ Content-Type: application/json
   "nome": "Vaso Pequeno",
   "quantidade": 10,
   "descricao": "Vaso de plantas Pequeno 10X10",
+  "categoria": {
+    "id": 1
+  },
+  "empresa": {
+    "id": 1
+  }
+}
+
+### PUT Materiais
+
+PUT http://localhost:8080/api/v1/materiais
+Content-Type: application/json
+
+{
+  "id": 0,
+  "nome": "Vasos Pequenos",
+  "quantidade": 1,
+  "descricao": "Vaso de plantas Pequeno 100X100",
   "categoria": {
     "id": 1
   },
@@ -71,9 +89,9 @@ PUT http://localhost:8080/api/v1/categorias/1
 Content-Type: application/json
 
 {
-  "id":0,
+  "id":1,
   "nome": "Vasos",
-  "descricao": "Vasos de Plantas",
+  "descricao": "Vaso de Planta",
   "empresa": {
     "id": 1
   }

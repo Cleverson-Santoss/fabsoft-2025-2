@@ -26,4 +26,21 @@ public class CategoriaServiceImpl
         return repository.save(categoria);
     }
 
+    @Override
+    public Categoria update(long id, Categoria categoria) throws Exception {
+    
+    var categoriaAntiga = repository.getById(id);
+    if (categoriaAntiga == null) {
+        throw new Exception("Categoria inexistente");
+    }
+
+    categoriaAntiga.setNome(categoria.getNome());
+    categoriaAntiga.setDescricao(categoria.getDescricao());
+    
+    repository.save(categoriaAntiga);
+
+    return categoriaAntiga;
+
+    }
+
 }

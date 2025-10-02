@@ -26,4 +26,23 @@ public class MaterialServiceImpl
         return repository.save(material);
     }
 
+    @Override
+    public Material update(long id, Material material) throws Exception {
+    
+    var materialAntigo = repository.getById(id);
+    if (materialAntigo == null) {
+        throw new Exception("Material inexistente");
+    }
+
+    materialAntigo.setNome(material.getNome());
+    materialAntigo.setQuantidade(material.getQuantidade());
+    materialAntigo.setDescricao(material.getDescricao());
+    materialAntigo.setCategoria(material.getCategoria());
+
+    repository.save(materialAntigo);
+
+    return materialAntigo;
+}
+
+
 }
