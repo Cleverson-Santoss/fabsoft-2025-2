@@ -1,13 +1,19 @@
 <main class="container">
+    <h2>Empresas</h2>
+    <button class="btn btn-primary" (click)="novo()" >Novo</button>
     <table class="table">
         <thead>
             <tr>
                 <th>Nome</th>
+                <th>CNPJ</th>
+                <th>Telefone</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let umEmpresa of listaEmpresa">
                 <td>{{ umEmpresa.nome }}</td>
+                <td>{{ umEmpresa.cnpj }}</td>
+                <td>{{ umEmpresa.telefone }}</td>
             </tr>
         </tbody>
     </table>

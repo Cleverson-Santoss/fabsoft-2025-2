@@ -4,6 +4,8 @@ import { EmpresaService } from '../service/empresa.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,19 +13,26 @@ import { CommonModule } from '@angular/common';
   imports: [HttpClientModule, CommonModule],
   templateUrl: './empresa.html',
   styleUrl: './empresa.css',
-  providers: [EmpresaService]
+  providers: [EmpresaService, Router]
 })
 export class EmpresaComponent {
 
   listaEmpresa: Empresa[] = []
 
-  constructor(private empresaService: EmpresaService){}
+  constructor(
+    private empresaService: EmpresaService,
+    private router:Router
+  ){}
 
   ngOnInit() {
     console.log('Carregando empresas...')
     this.empresaService.getEmpresas().subscribe( empresas => {
       this.listaEmpresa = empresas
     })
+  }
+
+  novo() {
+    this.router.navigate(['empresas/novo']);
   }
 
 }
